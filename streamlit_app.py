@@ -26,7 +26,7 @@ st.caption("Streamlit으로 만든 사용자 친화적 인터페이스")
 with st.sidebar:
     st.header("예매 정보 입력")
     
-    member_number = st.text_input("SRT 회원번호", placeholder="2291096083")
+    member_number = st.text_input("SRT 회원번호", placeholder="회원번호")
     password = st.text_input("비밀번호", type="password", placeholder="****")
     
     st.divider()
