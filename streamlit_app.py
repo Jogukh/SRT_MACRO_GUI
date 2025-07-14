@@ -111,4 +111,8 @@ if st.session_state.running:
 
 st.markdown("---")
 st.markdown("Made with ❤️ by Gemini")
+<<<<<<< HEAD
 scroll_to_here()
+=======
+streamlit_scroll_to_top.st_scroll_to_top()
+>>>>>>> 76db19f1c19c7b9e51465f2a28e2391aeed1c88b
