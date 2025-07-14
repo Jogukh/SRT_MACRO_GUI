@@ -2,7 +2,7 @@
 # version : 2.0.0
 
 import streamlit as st
-import streamlit_scroll_to_top
+from streamlit_scroll_to_top import scroll_to_here
 from srt_macro import run_macro
 import datetime
 
@@ -26,7 +26,7 @@ st.caption("Streamlit으로 만든 사용자 친화적 인터페이스")
 with st.sidebar:
     st.header("예매 정보 입력")
     
-    member_number = st.text_input("SRT 회원번호", placeholder="2291096083")
+    member_number = st.text_input("SRT 회원번호", placeholder="회원번호")
     password = st.text_input("비밀번호", type="password", placeholder="****")
     
     st.divider()
@@ -67,7 +67,7 @@ def start_macro():
 
 def stop_macro():
     st.session_state.running = False
-    st.toast("매크로 중지를 요청했습니다. 현재 작업을 완료 후 종료됩니다.", icon="info")
+    st.toast("매크로 중지를 요청했습니다. 현재 작업을 완료 후 종료됩니다.", icon="💡")
 
 with col1:
     st.button("매크로 시작", on_click=start_macro, disabled=st.session_state.running, type="primary")
@@ -111,4 +111,4 @@ if st.session_state.running:
 
 st.markdown("---")
 st.markdown("Made with ❤️ by Gemini")
-streamlit_scroll_to_top.st_scroll_to_top()
+scroll_to_here()
