@@ -10,38 +10,33 @@
 - **최신 로그 우선 표시**: 가장 최근의 로그 메시지가 맨 위에 표시됩니다.
 - **간편한 시작/중지**: 버튼 클릭 한 번으로 매크로를 시작하고 안전하게 중지할 수 있습니다.
 
-## 설치 방법
+## 설치 및 실행 (권장: uv)
 
-1.  **저장소 복제:**
-    ```bash
-    git clone https://github.com/your-repository/SRT_MACRO_GUI.git
-    cd SRT_MACRO_GUI
-    ```
+1) uv 설치 (PowerShell)
 
-2.  **가상 환경 생성 및 활성화:**
-    ```bash
-    # Windows
-    python -m venv .venv
-    .venv\Scripts\activate
-    ```
+```powershell
+irm https://astral.sh/uv/install.ps1 | iex
+```
 
-3.  **필요 라이브러리 설치:**
-    `requirements.txt` 파일을 통해 모든 종속성을 한 번에 설치합니다.
-    ```bash
-    pip install -r requirements.txt
-    ```
-    *만약 `requirements.txt` 파일이 없다면 아래 명령어를 실행하세요.*
-    ```bash
-    pip install streamlit selenium webdriver-manager streamlit-scroll-to-top
-    ```
+2) 의존성 동기화 및 앱 실행 (cmd)
+
+```cmd
+uv venv
+uv sync
+uv run streamlit run streamlit_app.py
+```
+
+Troubleshooting (잠금/해결 이슈 시):
+
+```cmd
+uv lock --upgrade
+uv sync
+```
 
 ## 사용법
 
 1.  **Streamlit 앱 실행:**
-    아래 명령어를 터미널에 입력하여 GUI를 실행합니다.
-    ```bash
-    streamlit run streamlit_app.py
-    ```
+    uv를 사용하는 경우 위 설치 절차의 마지막 명령으로 실행됩니다. pip를 사용할 경우 아래 참고를 확인하세요.
 
 2.  **정보 입력:**
     웹 브라우저에 나타난 사이드바에서 아래 정보를 입력합니다.
@@ -57,3 +52,25 @@
 ## 주의사항
 - 같은 IP로 단기간에 너무 많은 요청을 보내면 SRT 보안 정책에 따라 해당 IP가 일시적으로 차단될 수 있습니다.
 - 매크로 실행 중에는 웹 브라우저를 닫지 마세요.
+
+---
+
+## (선택) pip/venv로 실행하는 전통적 방법
+
+uv를 사용할 수 없는 환경에서만 사용하세요.
+
+1) 가상환경 생성/활성화
+
+```cmd
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+2) 의존성 설치 및 실행
+
+```cmd
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+참고: 본 프로젝트는 `pyproject.toml`을 기준으로 관리되며 `requirements.txt`는 호환성 유지를 위해서만 남겨둡니다.

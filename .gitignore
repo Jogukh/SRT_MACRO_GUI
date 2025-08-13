@@ -1,6 +1,34 @@
-.venv/
-.env
+# Python
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+
+# Virtual envs
+.venv/
+venv/
+ENV/
+.env
+
+# Editors / OS
 .vscode/
-readme.txt
-modules/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/
+
+# Tools / Caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+uv.lock
+
+# Logs
+*.log
+
+# Keep source tracked
+!modules/

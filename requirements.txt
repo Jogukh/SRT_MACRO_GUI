@@ -1,3 +1,7 @@
+# Deprecated: 이 프로젝트는 이제 uv + pyproject.toml로 의존성을 관리합니다.
+# 권장 실행:
+#   uv venv && uv sync && uv run streamlit run streamlit_app.py
+# 이 파일은 pip 기반 설치가 필요한 환경에서만 참고용으로 유지됩니다.
 altair==5.5.0
 attrs==25.3.0
 blinker==1.9.0
