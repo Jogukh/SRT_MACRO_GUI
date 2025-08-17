@@ -119,8 +119,9 @@ def run_macro(member_number, password, arrival, departure, standard_date, standa
                         pass
             
             if not reserved:
-                sleep_time = random.uniform(1, 5)
-                yield f"조회된 모든 기차에 잔여석이 없습니다. {sleep_time:.1f}초 후 새로고침합니다."
+                # 서버 부하 및 차단 위험을 줄이기 위해 최소 3초 이상 랜덤 대기
+                sleep_time = random.uniform(3, 7)
+                yield f"조회된 모든 기차에 잔여석이 없습니다. {sleep_time:.1f}초 후(랜덤) 새로고침합니다."
                 time.sleep(sleep_time)
                 submit = driver.find_element(By.XPATH, "/html/body/div/div[4]/div/div[2]/form/fieldset/div[2]/input")
                 driver.execute_script("arguments[0].click();", submit)
